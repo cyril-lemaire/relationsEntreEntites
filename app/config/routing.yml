@@ -1,0 +1,3 @@
+generer_le_crud:
+    resource: "@GenererLeCrudBundle/Resources/config/routing.yml"
+    prefix:   /

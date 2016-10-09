@@ -1,0 +1,4 @@
+services:
+#    generer_le_crud.example:
+#        class: GenererLeCrudBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
