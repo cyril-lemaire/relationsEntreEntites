@@ -20,6 +20,9 @@ class FlightType extends AbstractType
             ->add('pilot')
             ->add('freeSeats')
             ->add('takeofTime', 'datetime')
+            ->add('planeModel')
+            ->add('terrainDeparture')
+            ->add('terrainArrival')
         ;
     }
     

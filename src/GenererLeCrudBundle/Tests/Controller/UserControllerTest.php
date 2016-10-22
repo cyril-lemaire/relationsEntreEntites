@@ -4,7 +4,7 @@ namespace GenererLeCrudBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ReservationControllerTest extends WebTestCase
+class UserControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class ReservationControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '//');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET //");
+        $crawler = $client->request('GET', '/user/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /user/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'genererlecrudbundle_reservation[field_name]'  => 'Test',
+            'genererlecrudbundle_user[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class ReservationControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'genererlecrudbundle_reservation[field_name]'  => 'Foo',
+            'genererlecrudbundle_user[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

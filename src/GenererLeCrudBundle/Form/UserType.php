@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ReservationType extends AbstractType
+class UserType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,9 +16,6 @@ class ReservationType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('nbSeats')
-            ->add('flight')
-            ->add('users')
         ;
     }
     
@@ -28,7 +25,7 @@ class ReservationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'GenererLeCrudBundle\Entity\Reservation'
+            'data_class' => 'GenererLeCrudBundle\Entity\User'
         ));
     }
 }

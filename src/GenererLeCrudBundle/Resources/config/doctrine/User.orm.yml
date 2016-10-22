@@ -1,0 +1,20 @@
+GenererLeCrudBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: GenererLeCrudBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+
+    manyToMany:
+        reservations:
+            targetEntity: Reservation
+            mappedBy: users
+    lifecycleCallbacks: {  }

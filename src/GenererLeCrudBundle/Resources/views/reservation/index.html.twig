@@ -8,7 +8,6 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Nbseats</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,7 +16,6 @@
             <tr>
                 <td><a href="{{ path('reservation_show', { 'id': reservation.id }) }}">{{ reservation.id }}</a></td>
                 <td>{{ reservation.name }}</td>
-                <td>{{ reservation.nbSeats }}</td>
                 <td>
                     <ul>
                         <li>
@@ -40,6 +38,8 @@
         <li>
             <a href="{{ path('flight_index') }}"><button>Go to the flights index</button></a>
             <a href="{{ path('terrain_index') }}"><button>Consult the list of terrains</button></a>
+            <a href="{{ path('user_index') }}"><button>Log in / Register as a new user</button></a>
+            <a href="{{ path('planemodel_index') }}"><button>Consult the list of plane models</button></a>
         </li>
     </ul>
 {% endblock %}

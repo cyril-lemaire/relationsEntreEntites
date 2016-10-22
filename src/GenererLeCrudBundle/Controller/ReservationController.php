@@ -24,7 +24,7 @@ class ReservationController extends Controller
 
         $reservations = $em->getRepository('GenererLeCrudBundle:Reservation')->findAll();
 
-        return $this->render('GenererLeCrudBundle:Reservation:index.html.twig', array(
+        return $this->render('GenererLeCrudBundle:reservation:index.html.twig', array(
             'reservations' => $reservations,
         ));
     }
@@ -44,10 +44,10 @@ class ReservationController extends Controller
             $em->persist($reservation);
             $em->flush();
 
-            return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
+            return $this->redirectToRoute('_show', array('id' => $reservation->getId()));
         }
 
-        return $this->render('GenererLeCrudBundle:Reservation:new.html.twig', array(
+        return $this->render('GenererLeCrudBundle:reservation:new.html.twig', array(
             'reservation' => $reservation,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class ReservationController extends Controller
     {
         $deleteForm = $this->createDeleteForm($reservation);
 
-        return $this->render('GenererLeCrudBundle:Reservation:show.html.twig', array(
+        return $this->render('GenererLeCrudBundle:reservation:show.html.twig', array(
             'reservation' => $reservation,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -82,10 +82,10 @@ class ReservationController extends Controller
             $em->persist($reservation);
             $em->flush();
 
-            return $this->redirectToRoute('reservation_edit', array('id' => $reservation->getId()));
+            return $this->redirectToRoute('_edit', array('id' => $reservation->getId()));
         }
 
-        return $this->render('GenererLeCrudBundle:Reservation:edit.html.twig', array(
+        return $this->render('GenererLeCrudBundle:reservation:edit.html.twig', array(
             'reservation' => $reservation,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -107,7 +107,7 @@ class ReservationController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('reservation_index');
+        return $this->redirectToRoute('_index');
     }
 
     /**
@@ -120,7 +120,7 @@ class ReservationController extends Controller
     private function createDeleteForm(Reservation $reservation)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('reservation_delete', array('id' => $reservation->getId())))
+            ->setAction($this->generateUrl('_delete', array('id' => $reservation->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

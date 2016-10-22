@@ -1,6 +1,6 @@
-generer_le_crud_homepage:
-    path:     /strange_bug
-    defaults: { _controller: GenererLeCrudBundle:Default:index }
+generer_le_crud_reservation:
+    resource: "@GenererLeCrudBundle/Resources/config/routing/reservation.yml"
+    prefix:   /
 
 generer_le_crud_flight:
     resource: "@GenererLeCrudBundle/Resources/config/routing/flight.yml"
@@ -10,6 +10,10 @@ generer_le_crud_terrain:
     resource: "@GenererLeCrudBundle/Resources/config/routing/terrain.yml"
     prefix:   /terrain
 
-generer_le_crud_reservation:
-    resource: "@GenererLeCrudBundle/Resources/config/routing/reservation.yml"
-    prefix:   /
+generer_le_crud_user:
+    resource: "@GenererLeCrudBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+generer_le_crud_planemodel:
+    resource: "@GenererLeCrudBundle/Resources/config/routing/planemodel.yml"
+    prefix:   /planemodel

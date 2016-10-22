@@ -23,7 +23,7 @@ class TerrainController extends Controller
 
         $terrains = $em->getRepository('GenererLeCrudBundle:Terrain')->findAll();
 
-        return $this->render('GenererLeCrudBundle:Terrain:index.html.twig', array(
+        return $this->render('GenererLeCrudBundle:terrain:index.html.twig', array(
             'terrains' => $terrains,
         ));
     }
@@ -35,7 +35,7 @@ class TerrainController extends Controller
     public function showAction(Terrain $terrain)
     {
 
-        return $this->render('GenererLeCrudBundle:Terrain:show.html.twig', array(
+        return $this->render('GenererLeCrudBundle:terrain:show.html.twig', array(
             'terrain' => $terrain,
         ));
     }

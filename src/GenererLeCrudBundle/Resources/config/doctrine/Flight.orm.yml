@@ -8,6 +8,7 @@ GenererLeCrudBundle\Entity\Flight:
             id: true
             generator:
                 strategy: AUTO
+
     fields:
         departure:
             type: string
@@ -22,4 +23,28 @@ GenererLeCrudBundle\Entity\Flight:
             type: integer
         takeofTime:
             type: datetime
+
+    manyToOne:
+        planeModel:
+            targetEntity: PlaneModel
+            joinColumn:
+                name: plane_model_id
+                referencedColumnName: id
+        terrainDeparture:
+            targetEntity: Terrain
+            inversedBy: departingFlights
+            joinColumn:
+                name: terrain_departure_id
+                referencedColumnName: id
+        terrainArrival:
+            targetEntity: Terrain
+            inversedBy: arrivingFlights
+            joinColumn:
+                name: terrain_arrival_id
+                referencedColumnName: id
+
+    oneToMany:
+        reservations:
+            targetEntity: Reservation
+            mappedBy: flight
     lifecycleCallbacks: {  }

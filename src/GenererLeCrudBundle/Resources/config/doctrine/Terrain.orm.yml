@@ -25,4 +25,12 @@ GenererLeCrudBundle\Entity\Terrain:
         country:
             type: string
             length: 255
+
+    oneToMany:
+        departingFlights:
+            targetEntity: Flight
+            mappedBy: terrainDeparture
+        arrivingFlights:
+            targetEntity: Flight
+            mappedBy: terrainArrival
     lifecycleCallbacks: {  }

@@ -24,7 +24,7 @@ class FlightController extends Controller
 
         $flights = $em->getRepository('GenererLeCrudBundle:Flight')->findAll();
 
-        return $this->render('GenererLeCrudBundle:Flight:index.html.twig', array(
+        return $this->render('GenererLeCrudBundle:flight:index.html.twig', array(
             'flights' => $flights,
         ));
     }
@@ -47,7 +47,7 @@ class FlightController extends Controller
             return $this->redirectToRoute('flight_show', array('id' => $flight->getId()));
         }
 
-        return $this->render('GenererLeCrudBundle:Flight:new.html.twig', array(
+        return $this->render('GenererLeCrudBundle:flight:new.html.twig', array(
             'flight' => $flight,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class FlightController extends Controller
     {
         $deleteForm = $this->createDeleteForm($flight);
 
-        return $this->render('GenererLeCrudBundle:Flight:show.html.twig', array(
+        return $this->render('GenererLeCrudBundle:flight:show.html.twig', array(
             'flight' => $flight,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -85,7 +85,7 @@ class FlightController extends Controller
             return $this->redirectToRoute('flight_edit', array('id' => $flight->getId()));
         }
 
-        return $this->render('GenererLeCrudBundle:Flight:edit.html.twig', array(
+        return $this->render('GenererLeCrudBundle:flight:edit.html.twig', array(
             'flight' => $flight,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
