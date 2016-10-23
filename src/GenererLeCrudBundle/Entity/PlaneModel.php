@@ -9,8 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaneModel
 {
+	public function __toString()
+	{
+		return ($this->getModel());
+	}
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -25,12 +30,12 @@ class PlaneModel
     private $manufacturer;
 
     /**
-     * @var int
+     * @var integer
      */
     private $cruiseSpeed;
 
     /**
-     * @var int
+     * @var integer
      */
     private $nbSeats;
 

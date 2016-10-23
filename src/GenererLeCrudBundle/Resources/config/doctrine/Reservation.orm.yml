@@ -10,9 +10,6 @@ GenererLeCrudBundle\Entity\Reservation:
                 strategy: AUTO
 
     fields:
-        name:
-            type: string
-            length: 255
         nbSeats:
             type: integer
 
@@ -27,7 +24,6 @@ GenererLeCrudBundle\Entity\Reservation:
     manyToMany:
         users:
             targetEntity: User
-            inversedBy: reservations
             joinTable:
                 name: reservations_users
                 joinColumns:

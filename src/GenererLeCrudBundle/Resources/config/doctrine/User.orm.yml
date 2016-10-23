@@ -12,9 +12,4 @@ GenererLeCrudBundle\Entity\User:
         name:
             type: string
             length: 255
-
-    manyToMany:
-        reservations:
-            targetEntity: Reservation
-            mappedBy: users
     lifecycleCallbacks: {  }

@@ -10,8 +10,10 @@
                 <td>{{ reservation.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
-                <td>{{ reservation.name }}</td>
+                <th>Users</th>
+                {%  for user in reservation.users %}
+                    <td>{{ user }}</td>
+                {%  endfor %}
             </tr>
             <tr>
                 <th>Nbseats</th>

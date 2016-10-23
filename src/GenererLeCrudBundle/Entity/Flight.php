@@ -9,20 +9,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Flight
 {
+	public function __toString()
+	{
+		return 'Flight id: ' . strval($this->getId()) .
+			" from " . strval($this->getTerrainDeparture()) .
+			" to " . strval($this->getTerrainArrival());
+	}
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
-
-    /**
-     * @var string
-     */
-    private $departure;
-
-    /**
-     * @var string
-     */
-    private $arrival;
 
     /**
      * @var string
@@ -30,7 +27,7 @@ class Flight
     private $pilot;
 
     /**
-     * @var int
+     * @var integer
      */
     private $freeSeats;
 
@@ -39,6 +36,33 @@ class Flight
      */
     private $takeofTime;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $reservations;
+
+    /**
+     * @var \GenererLeCrudBundle\Entity\PlaneModel
+     */
+    private $planeModel;
+
+    /**
+     * @var \GenererLeCrudBundle\Entity\Terrain
+     */
+    private $terrainDeparture;
+
+    /**
+     * @var \GenererLeCrudBundle\Entity\Terrain
+     */
+    private $terrainArrival;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -48,52 +72,6 @@ class Flight
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set departure
-     *
-     * @param string $departure
-     * @return Flight
-     */
-    public function setDeparture($departure)
-    {
-        $this->departure = $departure;
-
-        return $this;
-    }
-
-    /**
-     * Get departure
-     *
-     * @return string 
-     */
-    public function getDeparture()
-    {
-        return $this->departure;
-    }
-
-    /**
-     * Set arrival
-     *
-     * @param string $arrival
-     * @return Flight
-     */
-    public function setArrival($arrival)
-    {
-        $this->arrival = $arrival;
-
-        return $this;
-    }
-
-    /**
-     * Get arrival
-     *
-     * @return string 
-     */
-    public function getArrival()
-    {
-        return $this->arrival;
     }
 
     /**
@@ -164,79 +142,6 @@ class Flight
     {
         return $this->takeofTime;
     }
-    /**
-     * @var \GenererLeCrudBundle\Entity\Terrain
-     */
-    private $terrainDeparture;
-
-    /**
-     * @var \GenererLeCrudBundle\Entity\Terrain
-     */
-    private $terrainArrival;
-
-
-    /**
-     * Set terrainDeparture
-     *
-     * @param \GenererLeCrudBundle\Entity\Terrain $terrainDeparture
-     * @return Flight
-     */
-    public function setTerrainDeparture(\GenererLeCrudBundle\Entity\Terrain $terrainDeparture = null)
-    {
-        $this->terrainDeparture = $terrainDeparture;
-
-        return $this;
-    }
-
-    /**
-     * Get terrainDeparture
-     *
-     * @return \GenererLeCrudBundle\Entity\Terrain 
-     */
-    public function getTerrainDeparture()
-    {
-        return $this->terrainDeparture;
-    }
-
-    /**
-     * Set terrainArrival
-     *
-     * @param \GenererLeCrudBundle\Entity\Terrain $terrainArrival
-     * @return Flight
-     */
-    public function setTerrainArrival(\GenererLeCrudBundle\Entity\Terrain $terrainArrival = null)
-    {
-        $this->terrainArrival = $terrainArrival;
-
-        return $this;
-    }
-
-    /**
-     * Get terrainArrival
-     *
-     * @return \GenererLeCrudBundle\Entity\Terrain 
-     */
-    public function getTerrainArrival()
-    {
-        return $this->terrainArrival;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $reservations;
-
-    /**
-     * @var \GenererLeCrudBundle\Entity\PlaneModel
-     */
-    private $planeModel;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add reservations
@@ -292,5 +197,51 @@ class Flight
     public function getPlaneModel()
     {
         return $this->planeModel;
+    }
+
+    /**
+     * Set terrainDeparture
+     *
+     * @param \GenererLeCrudBundle\Entity\Terrain $terrainDeparture
+     * @return Flight
+     */
+    public function setTerrainDeparture(\GenererLeCrudBundle\Entity\Terrain $terrainDeparture = null)
+    {
+        $this->terrainDeparture = $terrainDeparture;
+
+        return $this;
+    }
+
+    /**
+     * Get terrainDeparture
+     *
+     * @return \GenererLeCrudBundle\Entity\Terrain 
+     */
+    public function getTerrainDeparture()
+    {
+        return $this->terrainDeparture;
+    }
+
+    /**
+     * Set terrainArrival
+     *
+     * @param \GenererLeCrudBundle\Entity\Terrain $terrainArrival
+     * @return Flight
+     */
+    public function setTerrainArrival(\GenererLeCrudBundle\Entity\Terrain $terrainArrival = null)
+    {
+        $this->terrainArrival = $terrainArrival;
+
+        return $this;
+    }
+
+    /**
+     * Get terrainArrival
+     *
+     * @return \GenererLeCrudBundle\Entity\Terrain 
+     */
+    public function getTerrainArrival()
+    {
+        return $this->terrainArrival;
     }
 }

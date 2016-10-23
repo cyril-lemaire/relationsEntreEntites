@@ -9,38 +9,37 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reservation
 {
-	/**
-	 * Constructor
-	 */
-	public function __construct()
+	public function __toString()
 	{
-		$this->users = new \Doctrine\Common\Collections\ArrayCollection();
+		return strval($this->getId());
 	}
-
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
     /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var int
+     * @var integer
      */
     private $nbSeats;
 
-	/**
-	 * @var \GenererLeCrudBundle\Entity\Flight
-	 */
-	private $flight;
+    /**
+     * @var \GenererLeCrudBundle\Entity\Flight
+     */
+    private $flight;
 
-	/**
-	 * @var \Doctrine\Common\Collections\Collection
-	 */
-	private $users;
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -50,29 +49,6 @@ class Reservation
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Reservation
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -97,7 +73,6 @@ class Reservation
     {
         return $this->nbSeats;
     }
-
 
     /**
      * Set flight

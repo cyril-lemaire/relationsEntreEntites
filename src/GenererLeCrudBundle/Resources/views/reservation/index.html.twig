@@ -7,7 +7,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Flight</th>
+                <th>Users</th>
+                <th>Seats</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -15,7 +17,9 @@
         {% for reservation in reservations %}
             <tr>
                 <td><a href="{{ path('reservation_show', { 'id': reservation.id }) }}">{{ reservation.id }}</a></td>
-                <td>{{ reservation.name }}</td>
+                <td> {{ reservation.flight }}</td>
+                <td>{% for user in reservation.users %} {{ user }} {% endfor %}</td>
+                <td> {{ reservation.nbSeats }}</td>
                 <td>
                     <ul>
                         <li>

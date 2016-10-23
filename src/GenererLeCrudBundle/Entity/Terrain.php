@@ -9,8 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Terrain
 {
+	public function __toString()
+	{
+		return ($this->getName());
+	}
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -44,6 +48,24 @@ class Terrain
      */
     private $country;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $departingFlights;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $arrivingFlights;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->departingFlights = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->arrivingFlights = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -191,24 +213,6 @@ class Terrain
     public function getCountry()
     {
         return $this->country;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $departingFlights;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $arrivingFlights;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->departingFlights = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->arrivingFlights = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

@@ -9,92 +9,51 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User
 {
-	/**
-	 * @var int
-	 */
-	private $id;
-
-	/**
-	 * @var string
-	 */
-	private $name;
-
-
-	/**
-	 * Get id
-	 *
-	 * @return integer
-	 */
-	public function getId()
+	public function __toString()
 	{
-		return $this->id;
-	}
-
-	/**
-	 * Set name
-	 *
-	 * @param string $name
-	 * @return User
-	 */
-	public function setName($name)
-	{
-		$this->name = $name;
-
-		return $this;
-	}
-
-	/**
-	 * Get name
-	 *
-	 * @return string
-	 */
-	public function getName()
-	{
-		return $this->name;
+		return ($this->getName());
 	}
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var integer
      */
-    private $reservations;
+    private $id;
 
     /**
-     * Constructor
+     * @var string
      */
-    public function __construct()
+    private $name;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
     {
-        $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->id;
     }
 
     /**
-     * Add reservations
+     * Set name
      *
-     * @param \GenererLeCrudBundle\Entity\Reservations $reservations
+     * @param string $name
      * @return User
      */
-    public function addReservation(\GenererLeCrudBundle\Entity\Reservations $reservations)
+    public function setName($name)
     {
-        $this->reservations[] = $reservations;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Remove reservations
+     * Get name
      *
-     * @param \GenererLeCrudBundle\Entity\Reservations $reservations
+     * @return string 
      */
-    public function removeReservation(\GenererLeCrudBundle\Entity\Reservations $reservations)
+    public function getName()
     {
-        $this->reservations->removeElement($reservations);
-    }
-
-    /**
-     * Get reservations
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getReservations()
-    {
-        return $this->reservations;
+        return $this->name;
     }
 }
